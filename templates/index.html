@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Screener</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <h1 class="text-center mb-4">AI Resume Screener</h1>
+
+        <!-- Upload Form -->
+        <div class="card p-4 mb-5 shadow-sm">
+            <form action="/" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label">Upload Resumes (DOCX, multiple):</label>
+                    <input type="file" class="form-control" name="resumes" multiple required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Upload Job Description (TXT):</label>
+                    <input type="file" class="form-control" name="job" required>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Check Resumes</button>
+            </form>
+        </div>
+
+        <!-- Results Section -->
+        {% if results %}
+        <h2 class="mb-3">Ranked Results:</h2>
+        {% for r in results %}
+        <div class="card mb-3 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">🏆 Rank {{ loop.index }}: {{ r.file }}</h5>
+                
+                <!-- Match Score -->
+                <p class="mb-1">Match Score: {{ r.score }}%</p>
+                <div class="progress mb-2" style="height: 20px;">
+                    <div class="progress-bar" role="progressbar" style="width: {{ r.score }}%;" aria-valuenow="{{ r.score }}" aria-valuemin="0" aria-valuemax="100">{{ r.score }}%</div>
+                </div>
+
+                <!-- Skills -->
+                <p class="mb-1"><strong>Skills Found:</strong> {{ r.found_skills | join(', ') }}</p>
+                <p class="mb-1"><strong>Missing Skills:</strong> {{ r.missing_skills | join(', ') }}</p>
+
+                <!-- PDF Download -->
+                <a href="/reports/{{ r.pdf_report }}" class="btn btn-success" download>
+    Download PDF Report
+</a>
+
+            </div>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
