@@ -1,52 +1,109 @@
-# AI Resume Screening System
+🧠 AI Resume Screener (Flask Web App)
 
-## Revolutionizing recruitment with AI-powered automation!
+An AI-powered web application that automatically analyzes resumes against a job description and generates an ATS-style report with match score, found skills, and missing skills.
 
-This project is an intelligent system that automatically screens resumes based on a job description. Built with Python and NLP, it ranks candidates efficiently, saving recruiters time, effort, and ensuring top talent is never missed.
+This tool helps recruiters, HR teams, and startups quickly shortlist the best candidates from multiple resumes.
 
-## Key Features
+🚀 Features
 
-Upload multiple resumes (DOCX) simultaneously
+Upload multiple resumes (PDF or DOCX)
 
-Parse job descriptions to extract required skills and keywords
+Upload job description
 
-Automated scoring and ranking of candidates
+Extracts text from resumes
 
-Visual dashboards to quickly see top matches
+Uses NLP + Machine Learning to calculate match score
 
-Fully ATS-compatible, ensuring modern recruitment standards
+Finds skills present & missing
 
- ## Technologies Used
+Generates downloadable PDF ATS reports
 
-Python | Pandas | NumPy | Natural Language Processing (NLP) | Docx/TXT Handling
+Ranks resumes automatically
 
-## How It Works
+Simple web interface using Flask
 
-Clone the repository:
+🛠 Tech Stack
 
-git clone https://github.com/yourusername/AI-Resume-Screening-System.git
+Python
+
+Flask
+
+scikit-learn
+
+PyPDF
+
+docx2txt
+
+FPDF
+
+NLP (TF-IDF + Cosine Similarity)
+
+📁 Project Structure
+AI_Resume_Screener/
+│
+├── app.py
+├── templates/
+│   └── index.html
+├── uploads/
+├── reports/
+└── README.md
+
+⚙️ Installation
+1️⃣ Clone the repository
+git clone https://github.com/anglin123/AI_Resume_Screener_Final.git
+cd AI_Resume_Screener_Final
+
+2️⃣ Install required libraries
+pip install flask scikit-learn pypdf docx2txt fpdf
+
+▶️ How to Run
+python app.py
 
 
-Install dependencies:
+Open in browser:
 
-pip install -r requirements.txt
+http://127.0.0.1:5000
+
+📌 How to Use
+
+Upload the job description file
+
+Upload multiple resume files (PDF or DOCX)
+
+Click Submit
+
+The system will:
+
+Calculate match percentage
+
+Show found & missing skills
+
+Generate a downloadable PDF report for each resume
+
+Download ATS reports from the results page
+
+📊 Output Example
+John_Doe.pdf → 82.4%
+Jane_Smith.pdf → 71.2%
+Mark_Taylor.pdf → 55.6%
 
 
-Run the system:
+Each resume also gets a professional ATS PDF report.
 
-python main.py
+🎯 Use Cases
 
+HR teams screening candidates
 
-Upload resumes and job description → get ranked candidate results
+Startups hiring engineers
 
-## Why This Project Matters
+Recruiters
 
-Automates resume screening for faster hiring decisions
+Fiverr resume analysis services
 
-Highlights top talent without bias
+Students building AI portfolios
 
-Perfect for recruiters, HR tech startups, and data-driven hiring
+👨‍💻 Author
 
-Scalable and easy to adapt for any industry
-
-## Screenshots
+Angelin Abisha
+AI & Data Science Student
+GitHub: https://github.com/anglin123
