@@ -1,26 +1,28 @@
 🧠 AI Resume Screener (Flask Web App)
 
-An AI-powered web application that automatically analyzes resumes against a job description and generates an ATS-style report with match score, found skills, and missing skills.
+An AI-powered resume screening tool that analyzes multiple resumes against a job description and generates ATS-style PDF reports with match scores, found skills, and missing skills.
 
-This tool helps recruiters, HR teams, and startups quickly shortlist the best candidates from multiple resumes.
+Perfect for recruiters, HR teams, startups, or freelancers providing resume analysis services.
 
 🚀 Features
 
 Upload multiple resumes (PDF or DOCX)
 
-Upload job description
+Upload job description file
 
 Extracts text from resumes
 
-Uses NLP + Machine Learning to calculate match score
+Matches skills automatically from a predefined skills list
 
-Finds skills present & missing
+Calculates match score using TF-IDF + cosine similarity
 
-Generates downloadable PDF ATS reports
+Generates professional PDF ATS reports
 
-Ranks resumes automatically
+Ranks resumes by match score
 
-Simple web interface using Flask
+Download PDF reports directly from the web interface
+
+Works on local machine or can be deployed online
 
 🛠 Tech Stack
 
@@ -36,24 +38,22 @@ docx2txt
 
 FPDF
 
-NLP (TF-IDF + Cosine Similarity)
-
 📁 Project Structure
 AI_Resume_Screener/
 │
-├── app.py
+├── app.py                   # Main Flask application
 ├── templates/
-│   └── index.html
-├── uploads/
-├── reports/
+│   └── index.html           # Web interface template
+├── uploads/                 # Temporary uploaded resumes and job files
+├── reports/                 # Generated PDF reports
 └── README.md
 
 ⚙️ Installation
 1️⃣ Clone the repository
-git clone https://github.com/anglin123/AI_Resume_Screener_Final.git
-cd AI_Resume_Screener_Final
+git clone https://github.com/anglin123/AI-RESUME-SCREENER-SYSTEM.git
+cd AI-RESUME-SCREENER-SYSTEM
 
-2️⃣ Install required libraries
+2️⃣ Install dependencies
 pip install flask scikit-learn pypdf docx2txt fpdf
 
 ▶️ How to Run
@@ -66,29 +66,25 @@ http://127.0.0.1:5000
 
 📌 How to Use
 
-Upload the job description file
+Upload the job description file (.txt)
 
-Upload multiple resume files (PDF or DOCX)
+Upload one or more resumes (.pdf or .docx)
 
 Click Submit
 
-The system will:
+View the match score, found skills, and missing skills
 
-Calculate match percentage
-
-Show found & missing skills
-
-Generate a downloadable PDF report for each resume
-
-Download ATS reports from the results page
+Download the professional PDF report for each resume
 
 📊 Output Example
-John_Doe.pdf → 82.4%
-Jane_Smith.pdf → 71.2%
-Mark_Taylor.pdf → 55.6%
+Resume Name	Match Score	Found Skills	Missing Skills
+John_Doe.pdf	82.4%	python, machine learning	aws, docker
+Jane_Smith.pdf	71.2%	python, sql	tensorflow, aws
+Mark_Taylor.pdf	55.6%	python	sql, tensorflow
 
+Each resume gets a PDF report like:
 
-Each resume also gets a professional ATS PDF report.
+John_Doe_report.pdf
 
 🎯 Use Cases
 
@@ -96,9 +92,7 @@ HR teams screening candidates
 
 Startups hiring engineers
 
-Recruiters
-
-Fiverr resume analysis services
+Freelancers offering resume analysis services on Fiverr
 
 Students building AI portfolios
 
